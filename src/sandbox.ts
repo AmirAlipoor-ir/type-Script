@@ -1,1 +1,1 @@
-console.log("this is a sandbox file in type script ");
+console.log("this is a sandbox file in type script");
