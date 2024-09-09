@@ -1,11 +1,23 @@
 "use strict";
-// type StringOrNum = string | number;
-// type ObjWithName = { name: string; uid: StringOrNum };
-const logDetails = (uid, item) => {
-    console.log(`${item} has a uid fo ${uid}`);
+// let greet: Function;
+// example 1
+let greet;
+greet = (name, greeting) => {
+    console.log(`${name} says ${greeting}`);
 };
-logDetails(123, "ali");
-const greet = (user) => {
-    console.log(`${user.name} says hello with ${user.uid} number`);
+// example 2
+let calc;
+calc = (numOne, numTwo, action) => {
+    if (action === 'add') {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
 };
-greet({ name: "ali", uid: 23 });
+// example 3
+let logDetails;
+logDetails = (ninja) => {
+    console.log(`${ninja.name} is ${ninja.age} years old`);
+};
+logDetails({ name: "ali", age: 23 });
