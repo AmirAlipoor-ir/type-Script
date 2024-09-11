@@ -28,10 +28,12 @@ const extendedApi = todoSplitApi.injectEndpoints({
       invalidatesTags: ["todos"],
     }),
     updateTodos: builder.mutation({
-      query: ({ id, ...body }) => {
-        console.log(body);
-        return { url: `/todos/${id}`, method: "PATCH", body };
-      },
+      query: ({ id, ...body }) => ({
+        url: `/todos/${id}`,
+        method: "PATCH",
+        body,
+      }),
+
       invalidatesTags: ["todos"],
     }),
   }),
