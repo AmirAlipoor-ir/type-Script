@@ -1,14 +1,14 @@
 import { todoSplitApi } from "../basic";
-import { Todolist } from "./types";
+import { AddTodoRes, DeleteTodoRes, Todo, GetTodoRes } from "./types";
 
 const extendedApi = todoSplitApi.injectEndpoints({
   endpoints: (builder) => ({
-    getTodos: builder.query<Todolist, void>({
+    getTodos: builder.query<GetTodoRes, void>({
       query: () => ({ url: "/todos", method: "GET" }),
       providesTags: ["todos"],
     }),
-    addTodos: builder.mutation({
-      query: (title: string) => ({
+    addTodos: builder.mutation<AddTodoRes, string>({
+      query: (title) => ({
         url: "/todos",
         method: "POST",
         body: {
@@ -19,15 +19,15 @@ const extendedApi = todoSplitApi.injectEndpoints({
       }),
       invalidatesTags: ["todos"],
     }),
-    deleteTodos: builder.mutation({
-      query: (id: string) => ({
+    deleteTodos: builder.mutation<DeleteTodoRes, string>({
+      query: (id) => ({
         url: `/todos/${id}`,
         method: "DELETE",
         body: { id },
       }),
       invalidatesTags: ["todos"],
     }),
-    updateTodos: builder.mutation({
+    updateTodos: builder.mutation<Todo, Todo>({
       query: ({ id, ...body }) => ({
         url: `/todos/${id}`,
         method: "PATCH",
