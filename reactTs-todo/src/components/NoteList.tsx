@@ -7,11 +7,11 @@ import {
 export const NoteList = () => {
   const { data } = useGetTodosQuery();
   const [deleteTodo] = useDeleteTodosMutation();
-  const [toggleId] = useUpdateTodosMutation();
+  const [changeComplete] = useUpdateTodosMutation();
 
-  const handleToggleId = (id: string, completed: boolean) => {
+  const handleChangeComplete = (id: string, completed: boolean) => {
     console.log(completed);
-    toggleId({ id, completed: !completed });
+    changeComplete({ id, completed: !completed });
   };
 
   return (
@@ -21,7 +21,7 @@ export const NoteList = () => {
           <p>{title}</p>
           <input
             type="checkbox"
-            onChange={() => handleToggleId(id, completed)}
+            onChange={() => handleChangeComplete(id, completed)}
             checked={completed}
           />
           <button onClick={() => deleteTodo(id)}>delete</button>
