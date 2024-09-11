@@ -10,7 +10,6 @@ export const NoteList = () => {
   const [changeComplete] = useUpdateTodosMutation();
 
   const handleChangeComplete = (id: string, completed: boolean) => {
-    console.log(completed);
     changeComplete({ id, completed: !completed });
   };
 

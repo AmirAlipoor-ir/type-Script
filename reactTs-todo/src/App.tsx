@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 import {NoteList} from "./components/NoteList";
 import { AddNote } from "./components/AddNote";
 
