@@ -1,8 +1,9 @@
 import { ChangeEvent } from "react";
-import { useAddTodosMutation } from "../services/todos";
-import { AddNoteProps } from "./types";
 
-function AddNote(props: AddNoteProps) {
+import { AddNoteProps } from "./types";
+import { useAddTodosMutation } from "../services/todos";
+
+export const AddNote = (props: AddNoteProps) => {
   const [createTodo] = useAddTodosMutation();
 
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
@@ -22,6 +23,4 @@ function AddNote(props: AddNoteProps) {
       </form>
     </div>
   );
-}
-
-export default AddNote;
+};

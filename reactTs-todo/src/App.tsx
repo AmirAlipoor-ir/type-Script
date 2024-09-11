@@ -1,8 +1,10 @@
 import { useState } from "react";
-import AddNote from "./components/AddNote";
-import NoteList from "./components/NoteList";
 
-function App() {
+
+import {NoteList} from "./components/NoteList";
+import { AddNote } from "./components/AddNote";
+
+export default function App() {
   const [title, setTitle] = useState<string>("");
 
   return (
@@ -20,4 +22,3 @@ function App() {
   );
 }
 
-export default App;
